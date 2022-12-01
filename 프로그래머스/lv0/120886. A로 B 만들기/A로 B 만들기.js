@@ -1,6 +1,6 @@
 function solution(before, after) {
-    const beforeArr = [...before].sort().join()
-    const afterArr = [...after].sort().join()
+    const beforeStr = [...before].sort().join()
+    const afterStr = [...after].sort().join()
     
-    return beforeArr === afterArr ? 1 : 0
+    return beforeStr === afterStr ? 1 : 0
 }
