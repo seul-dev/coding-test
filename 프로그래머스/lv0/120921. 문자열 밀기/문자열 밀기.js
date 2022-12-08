@@ -8,5 +8,4 @@ function solution(A, B) {
         }
     }
     return -1;
-    return arr
 }
