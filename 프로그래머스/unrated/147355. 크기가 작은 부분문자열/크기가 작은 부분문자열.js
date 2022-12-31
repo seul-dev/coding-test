@@ -1,10 +1,11 @@
 function solution(t, p) {
+    let count = 0;
+    
     const pLength =  p.length;
-    const arr = []
     for(let i = 0; i<= t.length - pLength; i++){
         const sliced = t.slice(i, i+pLength)
-        arr.push(sliced)
+        if(+sliced <= +p) count++
     }
-    return arr.filter((el)=> parseInt(el) <= parseInt(p)).length
+    return count
 }
 
