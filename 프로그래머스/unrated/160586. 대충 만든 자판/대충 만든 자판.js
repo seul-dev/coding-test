@@ -1,14 +1,16 @@
 function solution(keymap, targets) {
-    const map = new Map()
-    for(const key of keymap) {
-        for(let i=0; i<key.length;i++) {
-            if(map.get(key[i]) <= i) {
-                break;
-            }
-            map.set(key[i], i+1)
-        }
-    }
+  const map = new Map();
 
-    return targets.map((target) => [...target].reduce((sum, acc) => sum + map.get(acc), 0) || -1)
+  keymap.forEach((key) =>
+    [...key].forEach((key, i) => {
+      if (!map.has(key) || map.get(key) > i + 1) {
+        map.set(key, i + 1);
+      }
+    })
+  );
+
+  return targets.map(
+    (target) =>
+      [...target].reduce((count, key) => count + map.get(key), 0) || -1
+  );
 }
-
