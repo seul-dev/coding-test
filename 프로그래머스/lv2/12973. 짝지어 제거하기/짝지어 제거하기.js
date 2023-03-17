@@ -1,4 +1,8 @@
 function solution(s) {
+    if(s.length % 2 !==0) {
+        return 0;
+    }
+    
     const stack =[]; 
     
     for(const char of s) {
