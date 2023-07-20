@@ -8,14 +8,10 @@ function solution(k, tangerine) {
     
     const tangerineCount = Array.from(tangerineSort.values()).sort((a,b)=> b-a)
     
-    tangerineCount.forEach((val) => {
-        if(k <= 0) {
-            return;
-        }
-        
-        count++;
-        k -= val;
-    })
+    while (k > 0) {
+        k -= tangerineCount.shift();
+        count += 1;
+    }
     
     return count
 }
