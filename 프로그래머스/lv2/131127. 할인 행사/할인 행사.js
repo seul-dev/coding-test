@@ -1,10 +1,6 @@
 function solution(want, number, discount) {
-    let answer = 0
-    const wantMap = new Map()
-    
-    want.forEach((item, idx) => {
-        wantMap.set(item, number[idx])
-    })
+    let count = 0
+    const wantMap = new Map(want.map((item, idx) => [item, number[idx]]))
   
     for(let i = 0; i <= discount.length - 10; i++){
         const sliced = discount.slice(i, i + 10)
@@ -13,18 +9,13 @@ function solution(want, number, discount) {
         sliced.forEach((item) => {
             const itemQuantity = copiedMap.get(item)
             if(itemQuantity) {
-                copiedMap.set(item, itemQuantity -1)
+                copiedMap.set(item, itemQuantity - 1)
             }
-            
-            if(copiedMap.get(item) === 0){
-                copiedMap.delete(item)
-            }
-            
         })
         
-        if (copiedMap.size === 0) {
-            answer++;
+        if (Array.from(copiedMap.values()).every((v)=> v === 0)) {
+            count++;
         }
     }
-    return answer
+    return count
 }
