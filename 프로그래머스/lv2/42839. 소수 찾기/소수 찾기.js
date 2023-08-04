@@ -1,5 +1,5 @@
 function solution(numbers) {
-    return [...getPermutations(numbers)].filter((num) => isPrimeNumber(num)).length
+    return getPermutations(numbers).filter((num) => isPrimeNumber(num)).length
 }
 
 function getPermutations(str) {
